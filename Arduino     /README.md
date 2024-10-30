@@ -25,17 +25,4 @@ Arduino Mega
 Plataforma de codigo abierto: 
 Arduino es una plataforma de código abierto que combina hardware y software fácil de manejar para construir proyectos electrónicos, este vamos a utlizar 
 
-
-Descripcion
-
-Les mostraremos un poco a cerca de Ocalis, nuestra mano robótica que enseña lenguaje de señas de un modo distintivo y didáctico para aprender,así también adentrarse en el mundo de la tecnologia y poder incluir a todas las personas
-
-Tecnologias utilizadas
-
-C++
-
-App Inventor
-
-Contenido del repositorio
-
-Tenemos en distintas carpetas almacenado una explicacion de cada una de ellas y el material en si para poder hacer la mano robotica
+Conexion entre la platafroma ARDUINO y el Arduino Mega: 
