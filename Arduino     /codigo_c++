@@ -1,1 +1,622 @@
+#include <Servo.h>
+//codigo para calibrar los dedos
+//dedos de la mano
+Servo pulgar; //pin 1
+Servo indice; //pin 2
+Servo dedomedio; //pin3
+Servo anular; //pin 4
+Servo menique;  //pin 5
+Servo palma;
+ 
+void setup() {
+  palma.attach(0);
+  pulgar.attach(1);
+  indice.attach(2);
+  dedomedio.attach(3);
+  anular.attach(4);
+  menique.attach(5);
+ 
+}
+ 
+void loop() {
+ 
+  pulgar.write(0);
+  indice.write(0); // Mueve servo2 a 180 para que gire en la misma dirección visual
+  dedomedio.write(0);
+  anular.write(0);
+  menique.write(0);
+delay(5000);
+ 
+  for(int posicion=0; posicion<=90; posicion++){
+    menique.write(posicion);
+    anular.write(posicion);
+    delay(30);
+  }
+  delay(200);
+for(int posicion=0; posicion<30; posicion++){
+  indice.write(posicion);
+  delay(30);
+}
+delay(200);
+for(int posicion=90; posicion>0; posicion--){
+  palma.write(posicion);
+  delay(30);
+}
+delay(5000);
+ 
+ 
+for(int posicion=0; posicion<90; posicion++){
+  palma.write(posicion);
+  delay(30);
+}
+delay(200);
+ 
+for(int posicion=90; posicion>0; posicion--){
+    menique.write(posicion);
+    anular.write(posicion);
+    delay(30);
+  }
+  delay(200);
+for(int posicion=30; posicion>0; posicion--){
+  indice.write(posicion);
+  delay(30);
+}
+delay(200);
 
+
+
+//movimiento de gatoo
+pulgar.write(0);
+  indice.write(0); // Mueve servo2 a 180 para que gire en la misma dirección visual
+  dedomedio.write(0);
+  anular.write(0);
+  menique.write(0);
+  rotaciona.write(0);
+ 
+  for(int posicion=0; posicion<90; posicion++){
+  rotaciona.write(posicion);
+  delay(30);
+ 
+  }
+ 
+   delay(3000);
+ 
+  for (int posicion = 0; posicion <= 90; posicion++) {
+    brazo1.write(posicion);
+    brazo2.write(180 - posicion); // Invertir el movimiento de servo2
+    delay(30);
+  }
+ 
+   delay(3000);
+ 
+  for(int posicion=0; posicion<=90; posicion++){
+    dedomedio.write(posicion);
+    anular.write(posicion);
+    menique.write(posicion);
+    delay(30);
+  }
+  delay(200);
+ 
+  for(int posicion=30; posicion>0; posicion--){
+  rotaciona.write(posicion);
+  delay(30);
+ 
+  }
+ 
+  delay(200);
+ 
+ 
+  for (int posicion = 90; posicion >0; posicion--) {
+    brazo1.write(posicion);
+    brazo2.write(180 - posicion); // Invertir el movimiento de servo2
+    delay(30);
+  }
+ 
+  delay(3000);
+ 
+ 
+ for(int posicion=90; posicion>0; posicion--){
+    dedomedio.write(posicion);
+    anular.write(posicion);
+    menique.write(posicion);
+    delay(30);
+  }
+  delay(200);
+ 
+ 
+ //oso 
+pulgar.attach(1);
+  indice.attach(2);
+  dedomedio.attach(3);
+  anular.attach(4);
+  menique.attach(5);
+ 
+  //sube baja brazo
+  brazo1.attach(9);
+  brazo2.attach(10);
+ 
+ //mivimiento de la ultima rotacion
+ rotaciona.attach(11);
+}
+ 
+void loop() {
+ 
+  pulgar.write(0);
+  indice.write(0); // Mueve servo2 a 180 para que gire en la misma dirección visual
+  dedomedio.write(0);
+  anular.write(0);
+  menique.write(0);
+  rotaciona.write(0);
+ 
+  for(int posicion=0; posicion<90; posicion++){
+  rotaciona.write(posicion);
+  delay(30);
+ 
+  }
+ 
+   delay(3000);
+ 
+  for (int posicion = 0; posicion <= 30; posicion++) {
+    brazo1.write(posicion);
+    brazo2.write(180 - posicion); // Invertir el movimiento de servo2
+    delay(30);
+  }
+ 
+   delay(3000);
+ 
+  for(int posicion=0; posicion<=30; posicion++){
+    dedomedio.write(posicion);
+    anular.write(posicion);
+    menique.write(posicion);
+    pulgar.write(posicion);
+    indice.write(posicion);
+    delay(30);
+  }
+  delay(200);
+ 
+  for(int posicion=30; posicion>0; posicion--){
+  rotaciona.write(posicion);
+  delay(30);
+ 
+  }
+ 
+  delay(200);
+ 
+ 
+  for (int posicion = 30; posicion >0; posicion--) {
+    brazo1.write(posicion);
+    brazo2.write(180 - posicion); // Invertir el movimiento de servo2
+    delay(30);
+  }
+ 
+  delay(3000);
+ 
+ 
+ for(int posicion=30; posicion>0; posicion--){
+     dedomedio.write(posicion);
+    anular.write(posicion);
+    menique.write(posicion);
+    pulgar.write(posicion);
+    indice.write(posicion);
+    delay(30);
+  }
+  delay(200);
+ 
+ //rinoceronteee
+  pulgar.write(0);
+  indice.write(0); // Mueve servo2 a 180 para que gire en la misma dirección visual
+  dedomedio.write(0);
+  anular.write(0);
+  menique.write(0);
+  rotaciona.write(0);
+  palma.write(90);
+ 
+  for(int posicion=0; posicion<90; posicion++){
+  rotaciona.write(posicion);
+  delay(30);
+ 
+  }
+ 
+delay(3000);
+ 
+for(int posicion=90; posicion>0; posicion--){
+  palma.write(posicion);
+  delay(30);
+}
+ 
+delay(3000);
+ 
+  for(int posicion=0; posicion<=90; posicion++){
+    dedomedio.write(posicion);
+    anular.write(posicion);
+    menique.write(posicion);
+    pulgar.write(posicion);
+    delay(30);
+  }
+  delay(200);
+ 
+    for(int posicion=0; posicion<30; posicion++){
+  muneca1.write(posicion);
+  muneca2.write(posicion);
+  delay(30);
+  }
+delay(3000);
+ 
+  for(int posicion=30; posicion>0; posicion--){
+  muneca1.write(posicion);
+  muneca2.write(posicion);
+  delay(30);
+  }
+ 
+   for(int posicion=90; posicion>0; posicion--){
+    dedomedio.write(posicion);
+    anular.write(posicion);
+    menique.write(posicion);
+    pulgar.write(posicion);
+    delay(30);
+  }
+  delay(200);
+ 
+  for(int posicion=30; posicion>0; posicion--){
+  rotaciona.write(posicion);
+  delay(30);
+ 
+  }
+ 
+  delay(200);
+
+//denadaaa
+   for(int posicion=50; posicion>0; posicion--){
+  rotaciona.write(posicion);
+  delay(30);
+ 
+  }
+delay(200);
+ 
+  for(int posicion=0; posicion<90; posicion++){
+    menique.write(posicion);
+    anular.write(posicion);
+    indice.write(posicion);
+    dedomedio.write(posicion);
+    delay(30);
+  }
+  delay(200);
+ 
+  // Mover servo1 de 0 a 90 grados y servo2 de 180 a 90 grados
+  for (int posicion = 40; posicion>0; posicion--) {
+    brazo1.write(posicion);
+    brazo2.write(180 - posicion); // Invertir el movimiento de servo2
+    delay(30);
+  }
+  delay(200);
+ 
+    for (int posicion = 0; posicion<40; posicion++) {
+    muneca1.write(posicion);
+    muneca2.write(180 - posicion); // Invertir el movimiento de servo2
+    delay(30);
+  }
+  delay(200);
+ 
+    for (int posicion = 40; posicion>0; posicion--) {
+    muneca1.write(posicion);
+    muneca2.write(180 - posicion); // Invertir el movimiento de servo2
+    delay(30);
+  }
+  delay(200);
+ 
+ 
+    for (int posicion = 0; posicion<=40; posicion++) {
+    brazo1.write(posicion);
+    brazo2.write(180 - posicion); // Invertir el movimiento de servo2
+    delay(30);
+  }
+  delay(200);
+ 
+   for(int posicion=90; posicion>0; posicion--){
+    menique.write(posicion);
+    anular.write(posicion);
+    indice.write(posicion);
+    dedomedio.write(posicion);
+    delay(30);
+  }
+  delay(200);
+ 
+   for(int posicion=0; posicion<50; posicion++){
+  rotaciona.write(posicion);
+  delay(30);
+ 
+  }
+delay(200);
+
+//adioooos
+   for(int posicion=50; posicion>0; posicion--){
+  rotaciona.write(posicion);
+  delay(30);
+ 
+  }
+delay(200);
+ 
+  for(int posicion=0; posicion<90; posicion++){
+    menique.write(posicion);
+    anular.write(posicion);
+    indice.write(posicion);
+    dedomedio.write(posicion);
+    pulgar.write(posicion);
+    delay(30);
+  }
+  delay(200);
+ 
+  // Mover servo1 de 0 a 90 grados y servo2 de 180 a 90 grados
+  for (int posicion = 40; posicion>0; posicion--) {
+    brazo1.write(posicion);
+    brazo2.write(180 - posicion); // Invertir el movimiento de servo2
+    delay(30);
+  }
+  delay(200);
+    for (int posicion = 0; posicion<=40; posicion++) {
+    brazo1.write(posicion);
+    brazo2.write(180 - posicion); // Invertir el movimiento de servo2
+    delay(30);
+  }
+  delay(200);
+ 
+   for(int posicion=90; posicion>0; posicion--){
+    menique.write(posicion);
+    anular.write(posicion);
+    indice.write(posicion);
+    dedomedio.write(posicion);
+    pulgar.write(posicion);
+    delay(30);
+  }
+  delay(200);
+ 
+   for(int posicion=0; posicion<50; posicion++){
+  rotaciona.write(posicion);
+  delay(30);
+ 
+  }
+delay(200);
+
+//holaaaa
+for(int posicion=90; posicion>0; posicion--){
+  palma.write(posicion);
+  delay(30);
+  }
+delay(200);
+  for(int posicion=90; posicion<180; posicion++){
+  pulgar.write(posicion);
+  delay(30);
+  }
+ 
+ 
+ 
+  for(int posicion=180; posicion>90; posicion--){
+  pulgar.write(posicion);
+  delay(30);
+  }
+delay(200);
+ 
+  for(int posicion=0; posicion<90; posicion++){
+  palma.write(posicion);
+  delay(30);
+  }
+delay(200);
+
+//graciaaas
+  rotaciona.write(180);
+    brazo1.write(90);
+    brazo2.write(90); // Invertir el movimiento de servo2
+    muneca1.write(90);
+    muneca2.write(90);
+ 
+  delay(5000);
+  for(int posicion=180; posicion>0; posicion--){
+  rotaciona.write(posicion);
+  delay(30);
+  }
+delay(200);
+for (int posicion = 90; posicion >0; posicion--) {
+  // Invertir el movimiento de servo2
+    muneca1.write(posicion);
+    muneca2.write(180 - posicion); // Invertir el movimiento de servo2
+    delay(30);
+  }
+ 
+ 
+  for (int posicion = 90; posicion <180; posicion++) {
+    brazo1.write(posicion);
+  brazo2.write(180 - posicion);
+    delay(30);
+  }
+ 
+    for (int posicion = 180; posicion >90; posicion--) {
+    brazo1.write(posicion);
+  brazo2.write(180 - posicion);
+    delay(30);
+  }
+ delay(200);
+ 
+  for (int posicion = 0; posicion <90; posicion++) {
+    muneca1.write(posicion);
+    muneca2.write(180 - posicion); // Invertir el movimiento de servo2
+    delay(30);
+  }
+ delay(200);
+ 
+ 
+  for(int posicion=0; posicion<180; posicion++){
+  rotaciona.write(posicion);
+  delay(30);
+  }
+delay(200);
+
+//hijoooo
+  rotaciona.write(180);
+    brazo1.write(90);
+    brazo2.write(90); // Invertir el movimiento de servo2
+    muneca1.write(90);
+    muneca2.write(90);
+   dedomedio.write(0);
+    anular.write(0);
+    menique.write(0);
+    indice.write(0);
+    pulgar.write(0);
+ 
+  delay(5000);
+  for(int posicion=180; posicion>0; posicion--){
+  rotaciona.write(posicion);
+  delay(30);
+  }
+delay(200);
+ 
+ 
+ 
+  for(int posicion=0; posicion<180; posicion++){
+    dedomedio.write(posicion);
+    anular.write(posicion);
+    menique.write(posicion);
+    indice.write(posicion);
+    pulgar.write(posicion);
+    delay(30);
+  }
+  delay(200);
+ 
+ 
+for (int posicion = 90; posicion >0; posicion--) {
+  // Invertir el movimiento de servo2
+    muneca1.write(posicion);
+    muneca2.write(180 - posicion); // Invertir el movimiento de servo2
+    delay(30);
+  }
+ 
+ 
+  for (int posicion = 90; posicion <180; posicion++) {
+    brazo1.write(posicion);
+  brazo2.write(180 - posicion);
+    delay(30);
+  }
+ 
+    for (int posicion = 180; posicion >90; posicion--) {
+    brazo1.write(posicion);
+  brazo2.write(180 - posicion);
+    delay(30);
+  }
+ delay(200);
+ 
+   for (int posicion = 0; posicion <90; posicion++) {
+    muneca1.write(posicion);
+    muneca2.write(180 - posicion); // Invertir el movimiento de servo2
+    delay(30);
+  }
+ delay(200);
+ 
+ 
+  for(int posicion=180; posicion>0; posicion--){
+    dedomedio.write(posicion);
+    anular.write(posicion);
+    menique.write(posicion);
+    indice.write(posicion);
+    pulgar.write(posicion);
+    delay(30);
+  }
+  delay(200);
+ 
+ 
+  for(int posicion=0; posicion<180; posicion++){
+  rotaciona.write(posicion);
+  delay(30);
+  }
+delay(200);
+
+//mamaaaa
+    rotaciona.write(180);
+    brazo1.write(90);
+    brazo2.write(90); // Invertir el movimiento de servo2
+    muneca1.write(90);
+    muneca2.write(90);
+   dedomedio.write(0);
+    anular.write(0);
+    menique.write(0);
+    indice.write(0);
+    pulgar.write(0);
+ 
+  delay(5000);
+ 
+ 
+  for(int posicion=0; posicion<180; posicion++){
+    menique.write(posicion);
+    delay(30);
+  }
+  delay(200);
+  for(int posicion=90; posicion>0; posicion--){
+  palma.write(posicion);
+  delay(30);
+  }
+delay(200);
+  for(int posicion=0; posicion<90; posicion++){
+  palma.write(posicion);
+  delay(30);
+  }
+ 
+  for(int posicion=180; posicion>0; posicion--){
+    menique.write(posicion);
+    delay(30);
+  }
+  delay(200);
+
+//paaapaaa
+  rotaciona.write(180);
+    brazo1.write(90);
+    brazo2.write(90); // Invertir el movimiento de servo2
+    muneca1.write(90);
+    muneca2.write(90);
+   dedomedio.write(0);
+    anular.write(0);
+    menique.write(0);
+    indice.write(0);
+    pulgar.write(0);
+ 
+  delay(5000);
+ 
+  for(int posicion=180; posicion>90; posicion--){
+  rotaciona.write(posicion);
+  delay(30);
+  }
+delay(200);
+ 
+  for(int posicion=0; posicion<180; posicion++){
+    menique.write(posicion);
+    anular.write(posicion);
+    delay(30);
+  }
+  delay(200);
+ 
+  for(int posicion=0; posicion<=50; posicion++){
+    dedomedio.write(posicion);
+    delay(30);
+  }
+  delay(200);
+ 
+    for(int posicion=50; posicion>=0; posicion--){
+    dedomedio.write(posicion);
+    delay(30);
+  }
+  delay(200);
+ 
+  for(int posicion=180; posicion>0; posicion--){
+    menique.write(posicion);
+    anular.write(posicion);
+    delay(30);
+  }
+ 
+  delay(200);
+ 
+    for(int posicion=90; posicion<180; posicion++){
+  rotaciona.write(posicion);
+  delay(30);
+  }
+delay(200);
+
+
+ 
+ }
