@@ -51,6 +51,7 @@ Una vez compilado, haz clic en el botón de “Subir” (→) para cargar el có
 8-Verifica la Conexión
 Si el código incluye una función de prueba, verifica que el Arduino Mega ejecute el programa tal como se planeó.
 
-Aqui esta el codigo proporcionado:
+IMPORTANTE:
+El codigo proporcionado esta en esta carpeta en un archivo llamado codigo++
 
 
