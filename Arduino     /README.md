@@ -10,14 +10,21 @@ INSTITUCION: Universidad Blas Pascal - Ingenieria en informatica
 
 INDICE -Introduccion -Cambios -Materiales -problemas -soluciones -Conclusion
 
-INTRODUCCION: Verememos y analizaremos el codigo en c++ de la mano robotica para los mivimientos fluidos
-Alcances: La app incluye un modo de aprendizaje con tres niveles de señas y un modo de prueba que evalúa el conocimiento del usuario mediante preguntas de opción múltiple.
+INTRODUCCION: Analizaremos el codigo de la mano robotica para entender un poco mas a profundidad como hace los movimientos para recrear las señas establecidas en el app inventor, alojamiento de el codigo en el arduino
+Alcances: Entender como se crean a traves de distintos bloques de codigo y librerias los movimientos de la mano Ocalis y ademas explicar como alojar el codigo en el arduino Mega para que almacene en su memoria el cosigo 
 
-DESCRIPCION DE LA APP
+DESCRIPCION DE ARDUINO 
 
-Aplicación móvil: La app está desarrollada en MIT App Inventor y es compatible con dispositivos Android.
+Codificacion: Esta creado por el lenguaje C++ que es compatible con la plataforma ARDUINO para compilar y almacenar el codigo fuente
 
-Interfaz de usuario: - Screen 1: Pantalla de inicio y logo. - Comenzar: Pantalla de menú principal con botones para acceder a los modos de 'Niveles' y 'Pruebas'. - LevelMenu: Menú de niveles de aprendizaje, donde cada nivel incluye cuatro señas con imágenes que la mano robótica imitará. - Pruebas: Pantalla de evaluación con 12 preguntas, opciones de respuesta y contador de puntos.
+Elementos fisicos: 
+Netbook o omputadora 
+Cable USB 
+Arduino Mega
+
+Plataforma de codigo abierto: 
+Arduino es una plataforma de código abierto que combina hardware y software fácil de manejar para construir proyectos electrónicos, este vamos a utlizar 
+
 
 Descripcion
 
