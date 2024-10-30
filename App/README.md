@@ -1,4 +1,12 @@
-Informe del Proyecto: App "Ocalis Project" para la Mano Robótica de Lengua de Señas
+ App "Ocalis Project" para la Mano Robótica de Lengua de Señas
+
+INTEGRANTES: Solis Rubi y Ocampo Abril
+
+DOCENTES A CARGO: prof. Nano y prof. Salamero
+
+MATERIA: LAB 1 - DIV "A"
+
+INSTITUCION: Universidad Blas Pascal - Ingenieria en informatica
 
 1. Introducción al Proyecto y Objetivos
    
@@ -61,21 +69,4 @@ Instrucciones de Instalación:
   -Importar el archivo .aia en MIT App Inventor para comenzar a editar y probar 
    el proyecto.
    
-5. Instrucciones para Contribuir
-   
-Este proyecto es de código abierto y acepta contribuciones para mejorar la aplicación. Las formas de contribuir incluyen:
-
- -Reportar errores: Abrir un “Issue” en el repositorio especificando el problema 
-  encontrado.
-  
- -Añadir nuevas funciones: Crear un “Pull Request” detallando la nueva 
- funcionalidad añadida. Las contribuciones deben respetar la estructura y la 
- estética de la app.
- 
- -Mejoras de documentación: Si se identifican áreas que pueden ser mejor 
- documentadas, las contribuciones de documentación son bienvenidas.
-
-6. Licencia
-Este proyecto está licenciado bajo la Licencia MIT. Esto permite que cualquiera pueda usar, copiar, modificar y distribuir el software y su documentación de manera libre, siempre y cuando se mantenga la mención de la licencia original.
-
 
