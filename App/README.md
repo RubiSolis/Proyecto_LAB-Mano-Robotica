@@ -7,6 +7,7 @@ El proyecto Ocalis Project es una aplicación educativa diseñada para trabajar 
 2. Tecnologías Utilizadas y Lenguajes de Programación
    
 Entorno de Desarrollo: MIT App Inventor
+
 Lenguajes de Programación:
 
      -Bloques de Programación Visual: MIT App Inventor usa bloques visuales de 
