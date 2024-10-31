@@ -1,26 +1,96 @@
+#include <ESP8266WiFi.h>
 #include <Servo.h>
-//codigo para calibrar los dedos
-//dedos de la mano
-Servo pulgar; //pin 1
-Servo indice; //pin 2
-Servo dedomedio; //pin3
-Servo anular; //pin 4
-Servo menique;  //pin 5
-Servo palma;
- 
+
+// Configuración Wi-Fi
+const char* ssid = "NOMBRE_RED";         // Nombre de la red Wi-Fi
+const char* password = "CONTRASEÑA_RED";  // Contraseña de la red Wi-Fi
+
+// Definir Servos
+Servo pulgar, indice, medio, anular, meñique, palma, rotaciona; // Asegúrate de tener todos los servos definidos
+
+// Pines de los Servos
+const int pinPulgar = D1;  // D1 como ejemplo
+const int pinIndice = D2;   // D2 como ejemplo
+const int pinMedio = D3;    // D3 como ejemplo
+const int pinAnular = D4;   // D4 como ejemplo
+const int pinMeñique = D5;  // D5 como ejemplo
+const int pinPalma = D6;     // D6 como ejemplo
+const int pinRotaciona = D7; // D7 como ejemplo
+
+// Servidor Wi-Fi
+WiFiServer server(80);
+
 void setup() {
-  palma.attach(0);
-  pulgar.attach(1);
-  indice.attach(2);
-  dedomedio.attach(3);
-  anular.attach(4);
-  menique.attach(5);
- 
+  Serial.begin(115200);
+
+  // Conectar a la red Wi-Fi
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("Conectado a Wi-Fi");
+  server.begin();
+  Serial.println("Servidor iniciado");
+
+  // Inicializar Servos
+  pulgar.attach(pinPulgar);
+  indice.attach(pinIndice);
+  medio.attach(pinMedio);
+  anular.attach(pinAnular);
+  meñique.attach(pinMeñique);
+  palma.attach(pinPalma);
+  rotaciona.attach(pinRotaciona);
+
+  // Posición inicial
+  posicionInicial();
 }
- 
+
 void loop() {
- 
-  pulgar.write(0);
+  WiFiClient client = server.available(); // Esperar conexión de cliente
+  if (client) {
+    Serial.println("Cliente conectado");
+    String request = client.readStringUntil('\r');
+    Serial.println(request);
+    client.flush();
+
+    // Interpretar comandos
+    if (request.indexOf("/raton") != -1) {
+      raton();
+    } else if (request.indexOf("/gato") != -1) {
+      gato();
+    } else if (request.indexOf("/oso") != -1) {
+      oso();
+    } else if (request.indexOf("/rinoceronte") != -1) {
+      rinoceronte();
+    } else if (request.indexOf("/denada") != -1) {
+      denada();
+    } else if (request.indexOf("/adios") != -1) {
+      adios();
+    } else if (request.indexOf("/hola") != -1) {
+      hola();
+    } else if (request.indexOf("/gracias") != -1) {
+      gracias();
+    } else if (request.indexOf("/hijo") != -1) {
+      hijo();
+    } else if (request.indexOf("/mama") != -1) {
+      mama();
+    } else if (request.indexOf("/papa") != -1) {
+      papa();
+    } else {
+      Serial.println("Comando no reconocido");
+    }
+    client.stop();
+  }
+}
+
+void posicionInicial() {
+  // Coloca aquí la posición inicial de los servos
+}
+
+void raton(){
+
+pulgar.write(0);
   indice.write(0); // Mueve servo2 a 180 para que gire en la misma dirección visual
   dedomedio.write(0);
   anular.write(0);
@@ -62,8 +132,10 @@ for(int posicion=30; posicion>0; posicion--){
   delay(30);
 }
 delay(200);
+ 
+}
 
-
+void gato(){
 
 //movimiento de gatoo
 pulgar.write(0);
@@ -122,26 +194,12 @@ pulgar.write(0);
     delay(30);
   }
   delay(200);
- 
- 
- //oso 
-pulgar.attach(1);
-  indice.attach(2);
-  dedomedio.attach(3);
-  anular.attach(4);
-  menique.attach(5);
- 
-  //sube baja brazo
-  brazo1.attach(9);
-  brazo2.attach(10);
- 
- //mivimiento de la ultima rotacion
- rotaciona.attach(11);
+
 }
- 
-void loop() {
- 
-  pulgar.write(0);
+
+void oso(){
+
+ pulgar.write(0);
   indice.write(0); // Mueve servo2 a 180 para que gire en la misma dirección visual
   dedomedio.write(0);
   anular.write(0);
@@ -201,7 +259,10 @@ void loop() {
     delay(30);
   }
   delay(200);
- 
+
+}
+void rinoceronte(){
+
  //rinoceronteee
   pulgar.write(0);
   indice.write(0); // Mueve servo2 a 180 para que gire en la misma dirección visual
@@ -264,6 +325,9 @@ delay(3000);
   }
  
   delay(200);
+}
+
+void denada(){
 
 //denadaaa
    for(int posicion=50; posicion>0; posicion--){
@@ -328,6 +392,10 @@ delay(200);
   }
 delay(200);
 
+}
+
+void adios(){
+
 //adioooos
    for(int posicion=50; posicion>0; posicion--){
   rotaciona.write(posicion);
@@ -376,7 +444,9 @@ delay(200);
  
   }
 delay(200);
+}
 
+void hola(){
 //holaaaa
 for(int posicion=90; posicion>0; posicion--){
   palma.write(posicion);
@@ -402,6 +472,8 @@ delay(200);
   }
 delay(200);
 
+}
+void gracias(){
 //graciaaas
   rotaciona.write(180);
     brazo1.write(90);
@@ -449,7 +521,9 @@ for (int posicion = 90; posicion >0; posicion--) {
   delay(30);
   }
 delay(200);
+}
 
+void hijo(){
 //hijoooo
   rotaciona.write(180);
     brazo1.write(90);
@@ -527,7 +601,9 @@ for (int posicion = 90; posicion >0; posicion--) {
   delay(30);
   }
 delay(200);
+}
 
+void mama(){
 //mamaaaa
     rotaciona.write(180);
     brazo1.write(90);
@@ -563,7 +639,9 @@ delay(200);
     delay(30);
   }
   delay(200);
+}
 
+void papa(){
 //paaapaaa
   rotaciona.write(180);
     brazo1.write(90);
@@ -616,7 +694,7 @@ delay(200);
   delay(30);
   }
 delay(200);
-
-
  
  }
+
+}
