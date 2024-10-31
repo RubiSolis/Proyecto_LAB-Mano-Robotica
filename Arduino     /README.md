@@ -54,4 +54,7 @@ Si el código incluye una función de prueba, verifica que el Arduino Mega ejecu
 IMPORTANTE:
 El codigo proporcionado esta en esta carpeta en un archivo llamado codigo++
 
+Explicacion de codigo: 
+
+
 
