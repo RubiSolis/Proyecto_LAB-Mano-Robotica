@@ -1,6 +1,16 @@
 
 
-Informe de Diseño 3D: Mano Robótica “Ocalis”
+ Diseño 3D Mano Robótica “Ocalis”
+ 
+
+INTEGRANTES: Solis Rubi y Ocampo Abril
+
+DOCENTES A CARGO: prof. Nano y prof. Salamero
+
+MATERIA: LAB 1 - DIV "A"
+
+INSTITUCION: Universidad Blas Pascal - Ingenieria en informatica
+
 
 ---
 
