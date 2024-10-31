@@ -47,6 +47,4 @@ Las dimensiones de cada componente se detallan a continuación para asegurar su 
 - **Meñique**: 1,3x1,3 cm, altura de 2,5 cm
 - **Pulgar (dedo adicional)**: 1,3x1,3 cm, altura de 2,5 cm
 
----
 
-Este informe ofrece una visión completa del diseño 3D de la mano robótica "Ocalis", destacando tanto los materiales como las especificaciones técnicas, lo cual es fundamental para su replicación o posible mejora en proyectos futuros.
