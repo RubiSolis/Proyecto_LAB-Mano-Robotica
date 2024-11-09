@@ -12,7 +12,7 @@ Materiales
 Conexiones Detalladas
 Conclusión
 1. Introducción
-En este documento se describe cómo conectar una mano robótica utilizando servos, una placa Arduino Uno y una protoboard. La mano robótica se controla a través de movimientos programados que pueden activarse desde una aplicación móvil desarrollada en App Inventor, y el código se carga en el Arduino Uno.
+En este documento se describe cómo conectar una mano robótica utilizando servos, una placa arduino mega  y una protoboard. La mano robótica se controla a través de movimientos programados que pueden activarse desde una aplicación móvil desarrollada en App Inventor, y el código se carga en el Arduino Uno.
 
 2. Descripción del Circuito
 El circuito consiste en un Arduino Uno conectado a varios servomotores a través de una protoboard. Cada servo está controlado por un pin de la placa Arduino, que envía señales de control para mover cada “dedo” de la mano robótica.
@@ -38,5 +38,18 @@ Servos
 Alimentación y Tierra: Los pines de alimentación (rojos) de todos los servos están conectados entre sí y luego a una fuente de alimentación de 5V en la protoboard. Los pines de tierra (negros) de los servos también están conectados entre sí y se unen al pin GND de la protoboard, que se conecta a la tierra de la placa Arduino.
 Protoboard
 La protoboard permite distribuir la energía y la conexión a tierra de todos los servos de forma ordenada. Todos los cables de alimentación y tierra de los servos están conectados en filas de la protoboard que están unidas a las fuentes de alimentación y tierra del Arduino Uno.
-5. Conclusión
+Módulo Bluetooth HC-05
+
+En este circuito, se ha incorporado un módulo Bluetooth HC-05 para permitir la comunicación inalámbrica con la mano robótica. Este módulo facilita el control remoto de los servos desde una aplicación o dispositivo Bluetooth compatible.
+
+Conexiones del Módulo Bluetooth HC-05
+Alimentación: El módulo HC-05 está conectado a la fuente de 3.3V y 5V de la placa Arduino Uno.
+Tierra: El pin de tierra del HC-05 está conectado al GND de la protoboard y del Arduino Uno.
+Pines de Comunicación:
+Pin 22 del Arduino Uno está conectado al pin de transmisión (TX) del HC-05.
+Pin 24 está conectado al pin de recepción (RX) del HC-05.
+Pin 26 se utiliza para la configuración o control adicional del módulo.
+Estas conexiones permiten que el Arduino Uno reciba y envíe datos al módulo Bluetooth, facilitando la interacción entre el dispositivo controlador (como una app en App Inventor) y la mano robótica.
+
+6. Conclusión
 Este esquema de conexión permite controlar una mano robótica con ocho servos, cada uno conectado a un pin digital de la placa Arduino Uno. La protoboard facilita la distribución de la alimentación y tierra para todos los servos. Este diseño es ideal para proyectos de enseñanza de lenguaje de señas, ya que permite programar movimientos específicos de cada "dedo" de la mano robótica desde el Arduino.
