@@ -1,4 +1,36 @@
 
+
+#include <SoftwareSerial.h>
+
+SoftwareSerial bluetooth(10, 11); // RX, TX
+
+void setup() {
+    Serial.begin(9600); // Para la comunicación Serial
+    bluetooth.begin(9600); // Para el HC-05
+    pinMode(2, INPUT); // Pin para el estado de emparejamiento
+}
+
+void loop() {
+    if (bluetooth.available()) {
+        char command = bluetooth.read();
+        Serial.println(command); // Muestra el comando recibido
+
+        // Aquí puedes agregar la lógica para controlar los servos o la mano robótica según el comando recibido
+        if (command == 'A') {
+            // Por ejemplo, mover la mano robótica en una dirección específica
+        }
+    }
+
+    // Leer el estado del pin STATE del HC-05
+    int state = digitalRead(2);
+    if (state == HIGH) {
+        Serial.println("HC-05 emparejado");
+    } else {
+        Serial.println("HC-05 no emparejado");
+    }
+}
+
+
 #include <Servo.h>
 
 // Configuración Wi-Fi
