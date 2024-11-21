@@ -1,3 +1,37 @@
+//PARA CONFIGURAR EN MODO ESCLAVO EL HC05 
+void setup() {
+  Serial.begin(9600);       // Comunicación con el monitor serial
+  Serial1.begin(38400);     // Comunicación con el HC-05 en modo AT
+  Serial.println("Listo para comandos AT");
+}
+
+void loop() {
+  // Enviar datos del monitor serial al HC-05
+  if (Serial.available()) {
+    char data = Serial.read();
+    Serial1.write(data);
+  }
+
+  // Leer datos del HC-05 y mostrarlos en el monitor serial
+  if (Serial1.available()) {
+    char data = Serial1.read();
+    Serial.write(data);
+  }
+}
+pines de hc05 rx a rx18 de arduino 
+pin tx de hc05 tx a tx19 de arduino 
+gnd a gnd 
+vcc a vcc 
+
+
+
+
+
+
+
+
+
+
 
 
 #include <SoftwareSerial.h>
