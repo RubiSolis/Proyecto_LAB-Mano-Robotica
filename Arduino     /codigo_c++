@@ -707,6 +707,522 @@ delay(200);
   delay(200);
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include <Servo.h> //Libreria para funciones de servomotores 
+//Declaracion de los servos de los dedos
+Servo pulgar;   
+Servo indice;
+Servo medio;
+Servo anular;
+Servo menique; 
+//Declaracion del servo pulgar 
+Servo abductor; 
+//Declaracion de los servos de movimiento arriba y abajo 
+Servo arriba1; 
+Servo arriba2; 
+//Declaracion de el servo de rotacion a los costados 
+Servo rotacion; 
+// Variable para recibir los datos desde Bluetooth
+char valor;     
+
+void setup() {
+  // Comunicación con el monitor serial
+  Serial.begin(9600);  
+  // Comunicación con el módulo HC-05 (Bluetooth)  
+  Serial1.begin(9600); 
+  Serial.println("Esperando comandos desde la app...");
+  //Declaramos los pines donde estan los dedos
+  pulgar.attach(1); 
+  indice.attach(2);  
+  medio.attach(3);   
+  indice.attach(4); 
+  anular.attach(5);   
+   //Declaramos el pin donde esta ubicado el abductor 
+  abductor.attach(8);
+  //Declaramos los pines de los seervos de arriba y abajo 
+  arriba1.attach(9); 
+  arriba2.attach(10);
+  //Declaramos el pin para la rotacion 
+  rotacion.attach(11);
+
+
+  pulgar.write(0);
+  indice.write(0);
+  medio.write(0);
+  anular.write(0);
+  menique.write(0);
+  rotacion.write(180);
+  abductor.write(90);
+  arriba1.write(90);
+  arriba2.write(90);
+
+}
+ 
+void loop() {
+  // Verifica si hay datos disponibles desde el HC-05
+  if (Serial1.available()) {
+    // Lee el dato enviado desde la app
+    valor = Serial1.read();  
+    Serial.print("Comando recibido: ");
+    Serial.println(valor);
+    // Control del servo basado en los comandos enviados desde la app
+    if (valor == 'adios') 
+
+     for(int posicion=50; posicion>0; posicion--){
+       rotacion.write(posicion);
+       delay(30);
+  }
+    delay(200);
+    for(int posicion=0; posicion<90; posicion++){
+    menique.write(posicion);
+    anular.write(posicion);
+    indice.write(posicion);
+    medio.write(posicion);
+    pulgar.write(posicion);
+    delay(30);
+  }
+delay(200);
+  // Mover servo1 de 0 a 90 grados y servo2 de 180 a 90 grados
+  for (int posicion = 40; posicion>0; posicion--) {
+    arriba1.write(posicion);
+    arriba2.write(180 - posicion); // Invertir el movimiento de servo2
+    delay(30);
+  }
+  delay(200);
+    for (int posicion = 0; posicion<=40; posicion++) {
+    arriba1.write(posicion);
+    arriba2.write(180 - posicion); // Invertir el movimiento de servo2
+    delay(30);
+  }
+  delay(200);
+   for(int posicion=90; posicion>0; posicion--){
+    menique.write(posicion);
+    anular.write(posicion);
+    indice.write(posicion);
+    medio.write(posicion);
+    pulgar.write(posicion);
+    delay(30);
+  }
+  delay(200);
+   for(int posicion=0; posicion<50; posicion++){
+  rotacion.write(posicion);
+  delay(30);
+  }
+  delay(200);
+}    
+    else if (valor == 'hola') {
+for(int posicion=90; posicion>0; posicion--){
+  abductor.write(posicion);
+  delay(30);
+  }
+delay(200);
+  for(int posicion=90; posicion<180; posicion++){
+  pulgar.write(posicion);
+  delay(30);
+  }
+  for(int posicion=180; posicion>90; posicion--){
+  pulgar.write(posicion);
+  delay(30);
+  }
+delay(200);
+  for(int posicion=0; posicion<90; posicion++){
+  abductor.write(posicion);
+  delay(30);
+  }
+delay(200);
+}
+    
+    else if (valor == 'gracias') {
+      //graciaaas
+  for(int posicion=180; posicion>0; posicion--){
+  rotacion.write(posicion);
+  delay(30);
+  }
+delay(200);
+for (int posicion = 90; posicion >0; posicion--) {
+  // Invertir el movimiento de servo2
+    arriba1.write(posicion);
+    arriba2.write(180 - posicion); // Invertir el movimiento de servo2
+    delay(30);
+  }
+  for (int posicion = 0; posicion <90; posicion++) {
+    arriba1.write(posicion);
+    arriba2.write(180 - posicion); // Invertir el movimiento de servo2
+    delay(30);
+  }
+ delay(200);
+  for(int posicion=0; posicion<180; posicion++){
+  rotacion.write(posicion);
+  delay(30);
+  }
+delay(200);
+    }
+
+       else if (valor == 'gracias') {
+     //graciaaas
+  for(int posicion=180; posicion>0; posicion--){
+  rotacion.write(posicion);
+  delay(30);
+  }
+delay(200);
+for (int posicion = 90; posicion >0; posicion--) {
+    arriba1.write(posicion);
+    arriba2.write(180 - posicion);
+    delay(30);
+  }
+  for (int posicion = 0; posicion <90; posicion++) {
+    arriba1.write(posicion);
+    arriba2.write(180 - posicion); // Invertir el movimiento de servo2
+    delay(30);
+  }
+ delay(200);
+  for(int posicion=0; posicion<180; posicion++){
+  rotacion.write(posicion);
+  delay(30);
+  }
+delay(200);
+    }
+
+    else if (valor == 'denada') {
+    //denadaaa
+  for(int posicion=50; posicion>0; posicion--){
+  rotacion.write(posicion);
+  delay(30);
+  }
+  delay(200);
+  for(int posicion=0; posicion<90; posicion++){
+    menique.write(posicion);
+    anular.write(posicion);
+    indice.write(posicion);
+    medio.write(posicion);
+    delay(30);
+  }
+  delay(200);
+  for (int posicion = 40; posicion>0; posicion--) {
+    arriba1.write(posicion);
+    arriba2.write(180 - posicion); // Invertir el movimiento de servo2
+    delay(30);
+  }
+  delay(200);
+    for (int posicion = 0; posicion<=40; posicion++) {
+    arriba1.write(posicion);
+    arriba2.write(180 - posicion); // Invertir el movimiento de servo2
+    delay(30);
+  }
+  delay(200);
+   for(int posicion=90; posicion>0; posicion--){
+    menique.write(posicion);
+    anular.write(posicion);
+    indice.write(posicion);
+    medio.write(posicion);
+    delay(30);
+  }
+  delay(200);
+   for(int posicion=0; posicion<50; posicion++){
+  rotacion.write(posicion);
+  delay(30); 
+  }
+delay(200);
+    }
+       else if (valor == 'mama') {
+     //mamaaaa
+  for(int posicion=0; posicion<180; posicion++){
+    anular.write(posicion);
+    delay(30);
+  }
+  delay(200);
+  for(int posicion=90; posicion>0; posicion--){
+  abductor.write(posicion);
+  delay(30);
+  }
+delay(200);
+  for(int posicion=0; posicion<90; posicion++){
+  abductor.write(posicion);
+  delay(30);
+  }
+  for(int posicion=180; posicion>0; posicion--){
+    anular.write(posicion);
+    delay(30);
+  }
+  delay(200);
+    }
+       else if (valor == 'papa') {
+     //paaapaaa
+  for(int posicion=180; posicion>90; posicion--){
+  rotacion.write(posicion);
+  delay(30);
+  }
+delay(200);
+ 
+  for(int posicion=0; posicion<180; posicion++){
+    menique.write(posicion);
+    anular.write(posicion);
+    delay(30);
+  }
+  delay(200);
+  for(int posicion=0; posicion<=50; posicion++){
+    medio.write(posicion);
+    delay(30);
+  }
+  delay(200);
+    for(int posicion=50; posicion>=0; posicion--){
+    medio.write(posicion);
+    delay(30);
+  }
+  delay(200);
+  for(int posicion=180; posicion>0; posicion--){
+    menique.write(posicion);
+    anular.write(posicion);
+    delay(30);
+  }
+  delay(200);
+  for(int posicion=90; posicion<180; posicion++){
+  rotacion.write(posicion);
+  delay(30);
+  }
+delay(200);
+    }
+       else if (valor == 'hijo') {
+      //hijoooo
+  for(int posicion=180; posicion>0; posicion--){
+  rotacion.write(posicion);
+  delay(30);
+  }
+delay(200);
+  for(int posicion=0; posicion<180; posicion++){
+    medio.write(posicion);
+    anular.write(posicion);
+    menique.write(posicion);
+    indice.write(posicion);
+    pulgar.write(posicion);
+    delay(30);
+  }
+  delay(200);
+for (int posicion = 90; posicion >0; posicion--) {
+    arriba1.write(posicion);
+    arriba2.write(180 - posicion); 
+    delay(30);
+  }
+   for (int posicion = 0; posicion <90; posicion++) {
+    arriba1.write(posicion);
+    arriba2.write(180 - posicion); // Invertir el movimiento de servo2
+    delay(30);
+  }
+ delay(200);
+  for(int posicion=180; posicion>0; posicion--){
+    medio.write(posicion);
+    anular.write(posicion);
+    menique.write(posicion);
+    indice.write(posicion);
+    pulgar.write(posicion);
+    delay(30);
+  }
+  delay(200);
+  for(int posicion=0; posicion<180; posicion++){
+  rotacion.write(posicion);
+  delay(30);
+  }
+delay(200);
+    }
+       else if (valor == 'novio') {
+     
+
+
+    }
+
+       else if (valor == 'gato') {
+//movimiento de gatoo
+  for(int posicion=0; posicion<90; posicion++){
+  rotacion.write(posicion);
+  delay(30);
+  }
+   delay(3000);
+  for (int posicion = 0; posicion <= 90; posicion++) {
+    arriba1.write(posicion);
+    arriba2.write(180 - posicion); // Invertir el movimiento de servo2
+    delay(30);
+  }
+   delay(3000);
+  for(int posicion=0; posicion<=90; posicion++){
+    medio.write(posicion);
+    anular.write(posicion);
+    menique.write(posicion);
+    delay(30);
+  }
+  delay(200);
+  for(int posicion=30; posicion>0; posicion--){
+  rotacion.write(posicion);
+  delay(30);
+  }
+  delay(200);
+  for (int posicion = 90; posicion >0; posicion--) {
+    arriba1.write(posicion);
+    arriba2.write(180 - posicion); // Invertir el movimiento de servo2
+    delay(30);
+  }
+  delay(3000);
+ for(int posicion=90; posicion>0; posicion--){
+    medio.write(posicion);
+    anular.write(posicion);
+    menique.write(posicion);
+    delay(30);
+  }
+  delay(200);  
+    }
+      else if (valor == 'raton') {
+  for(int posicion=0; posicion<=90; posicion++){
+    menique.write(posicion);
+    anular.write(posicion);
+    delay(30);
+  }
+  delay(200);
+for(int posicion=0; posicion<30; posicion++){
+  indice.write(posicion);
+  delay(30);
+}
+delay(200);
+for(int posicion=90; posicion>0; posicion--){
+  abductor.write(posicion);
+  delay(30);
+}
+delay(5000);
+for(int posicion=0; posicion<90; posicion++){
+  abductor.write(posicion);
+  delay(30);
+}
+delay(200);
+for(int posicion=90; posicion>0; posicion--){
+    menique.write(posicion);
+    anular.write(posicion);
+    delay(30);
+  }
+  delay(200);
+for(int posicion=30; posicion>0; posicion--){
+  indice.write(posicion);
+  delay(30);
+}
+delay(200);
+    }
+       else if (valor == 'oso') {
+  for(int posicion=0; posicion<90; posicion++){
+  rotacion.write(posicion);
+  delay(30);
+  }
+   delay(3000);
+  for (int posicion = 0; posicion <= 30; posicion++) {
+    arriba1.write(posicion);
+    arriba2.write(180 - posicion); // Invertir el movimiento de servo2
+    delay(30);
+  }
+   delay(3000);
+  for(int posicion=0; posicion<=30; posicion++){
+    medio.write(posicion);
+    anular.write(posicion);
+    menique.write(posicion);
+    pulgar.write(posicion);
+    indice.write(posicion);
+    delay(30);
+  }
+  delay(200);
+  for(int posicion=30; posicion>0; posicion--){
+  rotacion.write(posicion);
+  delay(30);
+  }
+  delay(200);
+  for (int posicion = 30; posicion >0; posicion--) {
+    arriba1.write(posicion);
+    arriba2.write(180 - posicion); // Invertir el movimiento de servo2
+    delay(30);
+  }
+  delay(3000);
+ for(int posicion=30; posicion>0; posicion--){
+    medio.write(posicion);
+    anular.write(posicion);
+    menique.write(posicion);
+    pulgar.write(posicion);
+    indice.write(posicion);
+    delay(30);
+  }
+  delay(200);
+    }
+     else if (valor == 'rinoceronte') {
+     //rinoceronteee
+  for(int posicion=0; posicion<90; posicion++){
+  rotacion.write(posicion);
+  delay(30);
+  }
+delay(3000);
+for(int posicion=90; posicion>0; posicion--){
+  abductor.write(posicion);
+  delay(30);
+}
+delay(3000);
+  for(int posicion=0; posicion<=90; posicion++){
+    medio.write(posicion);
+    anular.write(posicion);
+    menique.write(posicion);
+    pulgar.write(posicion);
+    delay(30);
+  }
+  delay(200);
+ for(int posicion=0; posicion<30; posicion++){
+  arriba1.write(posicion);
+  arriba2.write(posicion);
+  delay(30);
+  }
+delay(3000);
+  for(int posicion=30; posicion>0; posicion--){
+  arriba1.write(posicion);
+  arriba2.write(posicion);
+  delay(30);
+  }
+   for(int posicion=90; posicion>0; posicion--){
+    medio.write(posicion);
+    anular.write(posicion);
+    menique.write(posicion);
+    pulgar.write(posicion);
+    delay(30);
+  }
+  delay(200);
+  for(int posicion=30; posicion>0; posicion--){
+  rotacion.write(posicion);
+  delay(30);
+  }
+  delay(200);
+    }
+    else {
+      Serial.println("Comando no reconocido.");
+    }
+  }
+
 void papa(){
 //paaapaaa
   rotaciona.write(180);
