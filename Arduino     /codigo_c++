@@ -1280,3 +1280,59 @@ delay(200);
  }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   for (int posicion = 90; posicion<150; posicion++) {
+    arriba1.write(posicion);
+    arriba2.write(180 - posicion); // Invertir el movimiento de servo2
+    delay(30);
+  }
+  delay(200);
+    for (int posicion = 150; posicion>90; posicion--) {
+    arriba1.write(posicion);
+    arriba2.write(180 - posicion); // Invertir el movimiento de servo2
+    delay(30);
+  }
+  delay(200);
+ 
