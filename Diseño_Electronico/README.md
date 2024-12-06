@@ -21,7 +21,7 @@ El circuito consiste en un Arduino Mega conectado a varios servomotores a travé
 3. Materiales
 1 x Arduino Mega
 1 x Protoboard
-8 x Servomotores (uno para cada dedo y algunos movimientos adicionales)
+6 x Servomotores (uno para cada dedo y un movimiento adicional)
 Cables de conexión
 Fuente de alimentación para los servos (si es necesario)
 4. Conexiones Detalladas
@@ -29,8 +29,8 @@ Arduino Mega
 
 Pines Digitales: Los pines digitales de la placa Arduino Mega se conectan a los pines de señal de los servos. A continuación se describe la conexión de cada pin de Arduino con su respectivo servo:
 
-Pin 2 a la señal del primer servo.
-Pin 3 a la señal del segundo servo.
+Pin 9 a la señal del primer servo.
+Pin 2 a la señal del segundo servo.
 Pin 4 a la señal del tercer servo.
 Pin 5 a la señal del cuarto servo.
 Pin 6 a la señal del quinto servo.
