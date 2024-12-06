@@ -6,57 +6,49 @@ MATERIA: LAB 1 - DIV "A"
 INSTITUCIÓN: Universidad Blas Pascal - Ingeniería en Informática
 
 ÍNDICE
+1.Introducción
+2.Descripción del Circuito
+3.Materiales
+4.Conexiones Detalladas
+5.conclusion
 
-Introducción
-Descripción del Circuito
-Materiales
-Conexiones Detalladas
-Conclusión
 1. Introducción
 En este documento se describe cómo conectar una mano robótica utilizando servos, una placa Arduino Mega y una protoboard. La mano robótica se controla a través de movimientos programados que pueden activarse desde una aplicación móvil desarrollada en App Inventor, y el código se carga en el Arduino Mega.
 
 2. Descripción del Circuito
-El circuito consiste en un Arduino Mega conectado a varios servomotores a través de una protoboard. Cada servo está controlado por un pin de la placa Arduino, que envía señales de control para mover cada “dedo” de la mano robótica.
+El sistema consta de un Arduino Mega que controla 6 servomotores SG90. Cada servomotor está conectado a un pin digital de la placa Arduino, mientras que la energía y la tierra se distribuyen a través de una protoboard. Adicionalmente, un módulo Bluetooth HC-05 permite la comunicación inalámbrica entre el Arduino y la aplicación móvil.
 
 3. Materiales
 1 x Arduino Mega
 1 x Protoboard
-6 x Servomotores (uno para cada dedo y un movimiento adicional)
+6 x Servomotores SG90 (uno para cada dedo y un movimiento adicional para la rotación de la muñeca)
 Cables de conexión
-Fuente de alimentación para los servos (si es necesario)
+Módulo Bluetooth HC-05
+Fuente de alimentación externa para los servos (opcional)
+
 4. Conexiones Detalladas
-Arduino Mega
-
-Pines Digitales: Los pines digitales de la placa Arduino Mega se conectan a los pines de señal de los servos. A continuación se describe la conexión de cada pin de Arduino con su respectivo servo:
-
-Pin 9 a la señal del primer servo.
-Pin 2 a la señal del segundo servo.
-Pin 4 a la señal del tercer servo.
-Pin 5 a la señal del cuarto servo.
-Pin 6 a la señal del quinto servo.
-Pin 7 a la señal del sexto servo.
-Pin 8 a la señal del séptimo servo.
-Pin 9 a la señal del octavo servo.
-Servos
-
-Alimentación y Tierra: Los pines de alimentación (rojos) de todos los servos están conectados entre sí y luego a una fuente de alimentación de 5V en la protoboard. Los pines de tierra (negros) de los servos también están conectados entre sí y se unen al pin GND de la protoboard, que se conecta a la tierra de la placa Arduino Mega.
+Arduino Mega: Pines Digitales
+Pin 2: Servo del dedo índice
+Pin 3: Servo del dedo medio
+Pin 4: Servo del dedo anular
+Pin 5: Servo del dedo meñique
+Pin 7: Servo abductor (movimiento lateral del pulgar)
+Pin 8: Servo para la rotación de la muñeca
+Pin 9: Servo del dedo pulgar
 
 Protoboard
-
-La protoboard permite distribuir la energía y la conexión a tierra de todos los servos de forma ordenada. Todos los cables de alimentación y tierra de los servos están conectados en filas de la protoboard que están unidas a las fuentes de alimentación y tierra del Arduino Mega.
+Filas de energía (rojo): Conectadas a una fuente de 5V del Arduino Mega.
+Filas de tierra (negro): Conectadas al GND del Arduino Mega.
+6. Conexiones Detalladas
+Arduino Mega
 
 Módulo Bluetooth HC-05
-
-Conexiones del Módulo Bluetooth HC-05
-
-Alimentación: El módulo HC-05 está conectado a la fuente de 3.3V y 5V de la placa Arduino Mega.
-Tierra: El pin de tierra del HC-05 está conectado al GND de la protoboard y del Arduino Mega.
-Pines de Comunicación:
-Pin 22 del Arduino Mega está conectado al pin de transmisión (TX) del HC-05.
-Pin 24 está conectado al pin de recepción (RX) del HC-05.
-Pin 26 se utiliza para la configuración o control adicional del módulo.
-Estas conexiones permiten que el Arduino Mega reciba y envíe datos al módulo Bluetooth, facilitando la interacción entre el dispositivo controlador (como una app en App Inventor) y la mano robótica.
+Pin VCC: Conectado a el protoboard.
+Pin GND: Conectado a GND de la protoboard.
+Pin TX (Transmisión): Conectado al Pin 19 (RX1) del Arduino Mega.
+Pin RX (Recepción): Conectado al Pin 18 (TX1) del Arduino Mega (con divisor de voltaje si necesario).
+Pines Digitales: Los pines digitales de la placa Arduino Mega se conectan a los pines de señal de los servos. A continuación se describe la conexión de cada pin de Arduino con su respectivo servo:
 
 5. Conclusión
-Este esquema de conexión permite controlar una mano robótica con ocho servos, cada uno conectado a un pin digital de la placa Arduino Mega. La protoboard facilita la distribución de la alimentación y tierra para todos los servos. Este diseño es ideal para proyectos de enseñanza de lenguaje de señas, ya que permite programar movimientos específicos de cada "dedo" de la mano robótica desde el Arduino.
+Este diseño permite controlar una mano robótica equipada con seis servos utilizando un Arduino Mega y un módulo Bluetooth. La distribución de energía mediante la protoboard hace que las conexiones sean más organizadas y eficientes. Gracias a su capacidad de realizar movimientos precisos y programados, este proyecto es ideal para la enseñanza de lengua de señas. Además, su integración con una aplicación móvil ofrece una experiencia de usuario intuitiva y práctica.
 
