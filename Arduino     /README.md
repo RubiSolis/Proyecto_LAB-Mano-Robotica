@@ -42,6 +42,445 @@ En el mismo menú de Herramientas, ve a Puerto y selecciona el puerto COM corres
 5-Copia y Pega el Código
 Copia el código que te proporcionaré y pégalo en el editor del IDE de Arduino, reemplazando cualquier contenido que esté en la ventana.
 
+#include <Servo.h>
+//Declaracion de los servos de los dedos
+Servo pulgar;   
+Servo indice;
+Servo medio;
+Servo anular;
+Servo menique; 
+//Declaracion del servo pulgar 
+Servo abductor; 
+//Declaracion de el servo de rotacion a los costados 
+Servo rotacion1; 
+// Variable para recibir los datos desde Bluetooth
+char valor;     
+
+void setup() {
+  // Comunicación con el monitor serial
+  Serial.begin(9600);  
+  // Comunicación con el módulo HC-05 (Bluetooth)  
+  Serial1.begin(9600); 
+  Serial.println("Esperando comandos desde la app...");
+
+//Declaramos los pines donde estan los dedos
+  pulgar.attach(9); 
+  indice.attach(2);  
+  medio.attach(3);   
+  anular.attach(4); 
+  menique.attach(5);   
+   //Declaramos el pin donde esta ubicado el abductor 
+  abductor.attach(7);
+  //Declaramos el pin para la rotacion 
+  rotacion1.attach(8);
+
+  pulgar.write(0);
+  indice.write(0);
+  medio.write(0);
+  anular.write(0);
+  menique.write(0);
+  rotacion1.write(180);
+  abductor.write(90);
+}
+
+void loop() {
+   // Verifica si hay datos disponibles desde el HC-05
+  if (Serial1.available()) {
+    valor = Serial1.read();  // Lee el dato enviado
+    Serial.print("Comando recibido: ");
+    Serial.println(valor);
+if(valor=='1'){
+//holaaaa
+for(int posicion=180; posicion>120; posicion--){
+  rotacion1.write(posicion);
+  delay(30);
+}
+delay(500);
+for(int posicion=90; posicion>0; posicion--){
+  abductor.write(posicion);
+  delay(30);
+  }
+delay(500);
+  for(int posicion=90; posicion<180; posicion++){
+  pulgar.write(posicion);
+  delay(30);
+  }
+  for(int posicion=180; posicion>90; posicion--){
+  pulgar.write(posicion);
+  delay(30);
+  }
+delay(500);
+  for(int posicion=0; posicion<90; posicion++){
+  abductor.write(posicion);
+  delay(30);
+  }
+delay(500);
+}
+for(int posicion=120; posicion<180; posicion++){
+  rotacion1.write(posicion);
+  delay(30);
+}
+delay(500);
+}
+else if(valor=='2'){
+
+for (int posicion = 0; posicion < 180; posicion++) {
+    // Mueve los dedos
+    menique.write(posicion);
+    anular.write(posicion);
+    indice.write(posicion);
+    medio.write(posicion);
+    delay(20); // Controla la velocidad del movimiento
+
+}
+delay(500);
+
+// Mueve los dedos hacia arriba mientras las muñecas se mantienen a 90 grados
+for (int posicion = 180; posicion > 0; posicion--) {
+    // Mueve los dedos
+    menique.write(posicion);
+    anular.write(posicion);
+    indice.write(posicion);
+    medio.write(posicion);
+    delay(20); // Controla la velocidad del movimiento
+}
+delay(500);
+ }
+ else if(valor=='3'){
+      //denadaaa
+  for(int posicion=180; posicion>120; posicion--){
+  rotacion1.write(posicion);
+  delay(30);
+  }
+  delay(200);
+  for(int posicion=0; posicion<180; posicion++){
+    menique.write(posicion);
+    anular.write(posicion);
+    indice.write(posicion);
+    medio.write(posicion);
+    delay(20);
+  }
+  delay(500);
+   for(int posicion=180; posicion>0; posicion--){
+    menique.write(posicion);
+    anular.write(posicion);
+    indice.write(posicion);
+    medio.write(posicion);
+    delay(20);
+  }
+  delay(200);
+   for(int posicion=120; posicion<180; posicion++){
+  rotacion1.write(posicion);
+  delay(30); 
+  }
+delay(200);
+ }
+
+ else if(valor=='4'){
+ for(int posicion=180; posicion>100; posicion--){
+  rotacion1.write(posicion);
+  delay(30);
+ }
+ delay(500);
+  for(int posicion=100; posicion<180; posicion++){
+  rotacion1.write(posicion);
+  delay(30);
+ }
+ delay(500);
+}
+else if(valor=='5'){
+  //mamaaaa
+  for(int posicion=90; posicion>0; posicion--){
+    abductor.write(posicion);
+    delay(20);
+  }
+  delay(500);
+  for(int posicion=0; posicion<90; posicion++){
+  pulgar.write(posicion);
+  menique.write(posicion);
+  delay(20);
+  }
+delay(500);
+  for(int posicion=90; posicion>0; posicion--){
+  pulgar.write(posicion);
+  menique.write(posicion);
+  delay(20);
+  }
+delay(500);
+  for(int posicion=0; posicion<90; posicion++){
+  abductor.write(posicion);
+  delay(20);
+  }
+  delay(500);
+}
+
+else if(valor=='6'){
+   //paaapaaa
+  for(int posicion=180; posicion>130; posicion--){
+  rotacion1.write(posicion);
+  delay(20);
+  }
+delay(500);
+  for(int posicion=0; posicion<180; posicion++){
+    menique.write(posicion);
+    anular.write(posicion);
+    delay(20);
+  }
+  delay(200);
+  for(int posicion=0; posicion<70; posicion++){
+    medio.write(posicion);
+    delay(20);
+  }
+  delay(500);
+    for(int posicion=70; posicion>0; posicion--){
+    medio.write(posicion);
+    delay(20);
+  }
+  delay(500);
+  for(int posicion=180; posicion>0; posicion--){
+    menique.write(posicion);
+    anular.write(posicion);
+    delay(20);
+  }
+  delay(500);
+  for(int posicion=130; posicion<180; posicion++){
+  rotacion1.write(posicion);
+  delay(20);
+  }
+delay(500);
+}
+else if(valor=='7'){
+  //hijoooo
+  for(int posicion=180; posicion>130; posicion--){
+  rotacion1.write(posicion);
+  delay(20);
+  }
+delay(500);
+  for(int posicion=0; posicion<180; posicion++){
+    medio.write(posicion);
+    anular.write(posicion);
+    menique.write(posicion);
+    indice.write(posicion);
+    pulgar.write(posicion);
+    delay(20);
+  }
+  delay(500);
+  for(int posicion=90; posicion>0; posicion--){
+  abductor.write(posicion);
+  delay(20);
+  }
+delay(500);
+  for(int posicion=180; posicion>0; posicion--){
+    medio.write(posicion);
+    anular.write(posicion);
+    menique.write(posicion);
+    indice.write(posicion);
+    pulgar.write(posicion);
+    delay(20);
+  }
+  delay(500);
+  for(int posicion=0; posicion<90; posicion++){
+  abductor.write(posicion);
+  delay(20);
+  }
+delay(500);
+  for(int posicion=0; posicion<180; posicion++){
+  rotacion1.write(posicion);
+  delay(20);
+  }
+delay(500);
+}
+  else if(valor=='8'){
+  // Mover abductor hacia abajo
+  for(int posicion=90; posicion>0; posicion--){
+    abductor.write(posicion);
+    delay(20);
+  }
+  delay(500);
+
+  // Mover menique y anular hacia arriba
+  for(int posicion=0; posicion<180; posicion++){
+    menique.write(posicion);
+    anular.write(posicion);
+    delay(20);
+  }
+  delay(500);
+
+  // Mover índice y medio hacia arriba
+  for(int posicion=0; posicion<180; posicion++){
+    indice.write(posicion);
+    medio.write(posicion);
+    delay(20);
+  }
+  delay(500);
+
+  // Mover índice y medio hacia abajo
+  for(int posicion=180; posicion>0; posicion--){
+    indice.write(posicion);
+    medio.write(posicion);
+    delay(20);
+  }
+  delay(500);
+
+  // Repetir movimiento de índice y medio hacia arriba
+  for(int posicion=0; posicion<180; posicion++){
+    indice.write(posicion);
+    medio.write(posicion);
+    delay(20);
+  }
+  delay(500);
+
+  // Repetir movimiento de índice y medio hacia abajo
+  for(int posicion=180; posicion>0; posicion--){
+    indice.write(posicion);
+    medio.write(posicion);
+    delay(20);
+  }
+  delay(500);
+
+  // Mover abductor hacia arriba
+  for(int posicion=0; posicion<90; posicion++){
+    abductor.write(posicion);
+    delay(20);
+  }
+  delay(500);
+
+  // Mover menique y anular hacia abajo
+  for(int posicion=180; posicion>0; posicion--){
+    menique.write(posicion);
+    anular.write(posicion);
+    delay(20);
+  }
+  delay(500);
+}
+
+
+else if(valor=='A'){
+   for(int posicion=0; posicion<180; posicion++){
+    menique.write(posicion);
+    anular.write(posicion);
+    pulgar.write(posicion);
+    delay(20);
+  }
+  delay(500);
+
+  for(int posicion=90; posicion>0; posicion--){
+    abductor.write(posicion);
+    delay(20);
+  }
+  delay(500);
+
+  for(int posicion=0; posicion<70; posicion++){
+    medio.write(posicion);
+    delay(20);
+  }
+  delay(500);
+
+  for(int posicion=0; posicion<90; posicion++) {  // Incremento corregido
+    abductor.write(posicion);
+    delay(20);
+  }
+  delay(500);
+
+  for(int posicion=180; posicion>0; posicion--){
+    menique.write(posicion);
+    anular.write(posicion);
+    pulgar.write(posicion);
+    delay(20);
+  }
+  delay(500);
+
+  for(int posicion=70; posicion>0; posicion--){
+    medio.write(posicion);
+    delay(20);
+  }
+  delay(500);
+
+  for(int posicion=70; posicion>0; posicion--){
+    medio.write(posicion);
+    delay(20);
+  }
+  delay(500);
+}
+else if(valor=='B'){
+    for(int posicion=180; posicion>120; posicion--){
+  rotacion1.write(posicion);
+  delay(20);
+  }
+   delay(500);
+
+  for(int posicion=90; posicion>50; posicion--){
+  abductor.write(posicion);
+  delay(20);
+  }
+   delay(500);
+  for(int posicion=0; posicion<100; posicion++){
+    medio.write(posicion);
+    anular.write(posicion);
+    menique.write(posicion);
+    pulgar.write(posicion);
+    indice.write(posicion);
+    delay(20);
+  }
+  delay(500);
+  for(int posicion=120; posicion<180; posicion++){
+  rotacion1.write(posicion);
+  delay(20);
+  }
+   delay(500);
+  for(int posicion=50; posicion<90; posicion++){
+  abductor.write(posicion);
+  delay(20);
+  }
+   delay(500);
+ for(int posicion=100; posicion>0; posicion--){
+    medio.write(posicion);
+    anular.write(posicion);
+    menique.write(posicion);
+    pulgar.write(posicion);
+    indice.write(posicion);
+    delay(30);
+  }
+  delay(200);
+}
+
+else if(valor=='C'){
+      //rinoceronteee
+  for(int posicion=180; posicion>120; posicion--){
+  rotacion1.write(posicion);
+  delay(20);
+  }
+delay(500);
+for(int posicion=90; posicion>0; posicion--){
+  abductor.write(posicion);
+  delay(20);
+}
+delay(500);
+  for(int posicion=0; posicion<180; posicion++){
+    medio.write(posicion);
+    anular.write(posicion);
+    menique.write(posicion);
+    pulgar.write(posicion);
+    delay(20);
+  }
+  delay(500);
+   for(int posicion=180; posicion>0; posicion--){
+    medio.write(posicion);
+    anular.write(posicion);
+    menique.write(posicion);
+    pulgar.write(posicion);
+    delay(20);
+  }
+  delay(500);
+  for(int posicion=120; posicion<180; posicion++){
+  rotacion1.write(posicion);
+  delay(20);
+  }
+  delay(500);
+}
+}
+
+
 6-Compila el Código
 Haz clic en el ícono de “Verificar” (✓) para asegurarte de que el código no tenga errores.
 
