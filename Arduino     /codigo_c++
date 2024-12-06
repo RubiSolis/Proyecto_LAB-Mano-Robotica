@@ -7,12 +7,8 @@ Servo anular;
 Servo menique; 
 //Declaracion del servo pulgar 
 Servo abductor; 
-//Declaracion de los servos de movimiento arriba y abajo 
-Servo arriba1; 
-Servo arriba2; 
 //Declaracion de el servo de rotacion a los costados 
 Servo rotacion1; 
-Servo rotacion2;
 // Variable para recibir los datos desde Bluetooth
 char valor;     
 
