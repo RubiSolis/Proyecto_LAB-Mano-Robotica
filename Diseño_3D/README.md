@@ -36,7 +36,7 @@ Material flexible y resistente, utilizado para el control de los dedos.
 Tanza de 0.5 mm:
 Sirve como componente clave del sistema de tensores, proporcionando alta resistencia.
 Servomotores SG90:
-Seis servomotores en total: uno para la rotación de la base y cinco para el control de los dedos.
+siete servomotores en total: uno para la rotación de la base y cinco para el control de los dedos.
 ---
 
 4. Componentes Clave
