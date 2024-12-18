@@ -53,4 +53,5 @@ Este proyecto combina hardware y software para facilitar el aprendizaje del leng
 4. **Conexión con la mano robótica**:
    - La app enviará las instrucciones a la mano mediante Bluetooth.
 
-
+## AQUI SE PROPORCIONA EL LINK DE EL VIDEO PARA EL ARMADO DE LA MANO OCALIS 
+https://www.youtube.com/watch?v=fieZ1XsbA4o
